@@ -15,6 +15,7 @@
         // Node. Does not work with strict CommonJS, but
         // only CommonJS-like enviroments that support module.exports,
         // like Node.
+
         module.exports = factory(require('is_js'));
     } else {
         // Browser globals (root is window)
@@ -790,5 +791,17 @@
         return this;
     };
 
+    // Extension mthods
+    /* -------------------------------------------------------------------------- */
+    is.extension = {};
+
+    is.extension.image = function(name) {
+      var extensions = [/\.png$/,/\.jpg$/,/\.jpeg$/,/\.gif$/];
+      return is.string(name) 
+        && extensions.some(function(el){
+          return el.test(name)
+        });
+    }
+   
     return is;
 }));
