@@ -3017,3 +3017,17 @@ describe("array checks", function() {
         });
     });
 });
+
+
+describe("extension checks", function() {
+  describe("is.extension.image", function() {
+    it("should return true if given image extension is image", function() {
+      var image = "image.png";
+      expect(is.extension.image(image)).to.be.true;
+    });
+    it("should return false if given image extension is not image", function() {
+      var image = "calculus.xls";
+      expect(is.extension.image(image)).to.be.false;
+    });
+  });
+});
